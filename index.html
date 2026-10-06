@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MUSE - MASTER ADS | @johancano_ads</title>
+<meta name="description" content="Guía completa de Muse, el agente de Meta: qué puede ver y hacer en tu Instagram, Facebook, Messenger y WhatsApp, qué riesgos tiene y cómo blindar tus cuentas en 15 minutos. Por @johancano_ads." />
+<meta property="og:title" content="MUSE - MASTER ADS" />
+<meta property="og:description" content="Qué puede ver y hacer Muse de Meta en tus cuentas, y cómo controlarlo en 15 minutos. Por @johancano_ads." />
+<meta property="og:type" content="article" />
+<meta name="theme-color" content="#040a1f" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23040a1f'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-weight='900' font-size='36' fill='%23ffd60a'>M</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#040a1f;
+    --bg-2:#071233;
+    --card:rgba(14,30,78,.55);
+    --card-solid:#0b1a45;
+    --line:rgba(120,160,255,.16);
+    --text:#ffffff;
+    --muted:#b9c5e8;
+    --dim:#8193c4;
+    --yellow:#ffd60a;
+    --yellow-2:#ffe866;
+    --blue:#2f7bff;
+    --cyan:#4fd1ff;
+    --red:#ff4d6d;
+    --orange:#ff9f1c;
+    --green:#3ddc97;
+    --glow-y:0 0 6px rgba(255,214,10,.9),0 0 18px rgba(255,214,10,.55),0 0 42px rgba(255,214,10,.35);
+    --glow-b:0 0 8px rgba(79,209,255,.6),0 0 26px rgba(47,123,255,.4);
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.65;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Space Grotesk','Inter',sans-serif;line-height:1.15;letter-spacing:-.01em}
+  a{color:var(--yellow);text-decoration:none}
+  ::selection{background:var(--yellow);color:var(--bg)}
+
+  /* ---------- Fondo animado ---------- */
+  .bg{position:fixed;inset:0;z-index:-2;overflow:hidden;background:
+      radial-gradient(1200px 600px at 50% -10%,#0d2363 0%,transparent 60%),
+      linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%);}
+  .orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;animation:float 18s ease-in-out infinite}
+  .orb.o1{width:520px;height:520px;background:#1a4dff;top:-140px;left:-160px}
+  .orb.o2{width:420px;height:420px;background:#ffd60a;opacity:.18;top:35%;right:-160px;animation-delay:-6s}
+  .orb.o3{width:460px;height:460px;background:#00a6ff;opacity:.28;bottom:-160px;left:20%;animation-delay:-12s}
+  @keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(60px,40px) scale(1.08)}66%{transform:translate(-40px,70px) scale(.94)}}
+  .grid{position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background-image:linear-gradient(rgba(120,160,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(120,160,255,.06) 1px,transparent 1px);
+    background-size:56px 56px;
+    mask-image:radial-gradient(ellipse at 50% 20%,#000 30%,transparent 75%);
+    -webkit-mask-image:radial-gradient(ellipse at 50% 20%,#000 30%,transparent 75%);}
+
+  /* ---------- Barra de progreso ---------- */
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:100;background:var(--yellow);box-shadow:var(--glow-y)}
+
+  /* ---------- Nav ---------- */
+  nav.top{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    background:rgba(4,10,31,.6);border-bottom:1px solid var(--line)}
+  .nav-in{max-width:1100px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{font-family:'Space Grotesk';font-weight:700;font-size:1.05rem;letter-spacing:.04em;color:#fff;display:flex;align-items:center;gap:10px;white-space:nowrap}
+  @media (max-width:420px){.brand{font-size:.9rem;gap:7px}.nav-cta{font-size:.78rem;padding:8px 12px}}
+  .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--yellow);box-shadow:var(--glow-y);animation:pulse 2s infinite}
+  .brand b{color:var(--yellow);text-shadow:var(--glow-y)}
+  .nav-cta{font-size:.85rem;font-weight:600;padding:9px 16px;border-radius:999px;border:1px solid var(--yellow);color:var(--yellow);transition:.25s;white-space:nowrap}
+  .nav-cta:hover{background:var(--yellow);color:var(--bg);box-shadow:var(--glow-y)}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+
+  .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+  .narrow{max-width:820px;margin:0 auto}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:90px 20px 70px;text-align:center;position:relative}
+  .badge{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    padding:8px 16px;border-radius:999px;border:1px solid rgba(255,214,10,.45);color:var(--yellow);background:rgba(255,214,10,.07);
+    box-shadow:0 0 22px rgba(255,214,10,.15) inset}
+  .hero h1{font-size:clamp(2.8rem,9vw,6.4rem);font-weight:700;margin:26px 0 8px;letter-spacing:-.02em}
+  .hero h1 .muse{display:block;color:#fff;text-shadow:0 0 30px rgba(79,140,255,.55)}
+  .hero h1 .master{display:block;color:var(--yellow);text-shadow:var(--glow-y);animation:flicker 6s infinite}
+  @keyframes flicker{0%,18%,22%,25%,53%,57%,100%{opacity:1;text-shadow:var(--glow-y)}20%,24%,55%{opacity:.75;text-shadow:none}}
+  .hero .sub{font-size:clamp(1.05rem,2.4vw,1.3rem);color:var(--muted);max-width:720px;margin:22px auto 0}
+  .meta{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;margin-top:28px;color:var(--dim);font-size:.9rem}
+  .meta span{display:inline-flex;align-items:center;gap:8px}
+  .meta .handle{color:var(--yellow);font-weight:600}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:36px}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;padding:15px 26px;border-radius:14px;transition:.25s;font-size:1rem}
+  .btn-y{background:var(--yellow);color:var(--bg);box-shadow:0 0 0 rgba(255,214,10,0)}
+  .btn-y:hover{transform:translateY(-2px);box-shadow:var(--glow-y)}
+  .btn-o{border:1px solid var(--line);color:#fff;background:rgba(255,255,255,.04)}
+  .btn-o:hover{border-color:var(--cyan);box-shadow:var(--glow-b)}
+  .scroll-hint{margin-top:56px;color:var(--dim);font-size:.8rem;letter-spacing:.2em;text-transform:uppercase}
+  .scroll-hint i{display:block;width:2px;height:40px;margin:12px auto 0;background:linear-gradient(var(--yellow),transparent);animation:drop 1.8s infinite}
+  @keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+  /* ---------- Secciones ---------- */
+  section{padding:70px 0}
+  .eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--yellow);text-shadow:0 0 12px rgba(255,214,10,.5)}
+  h2.title{font-size:clamp(1.8rem,4.4vw,2.8rem);margin:10px 0 18px}
+  h2.title em{font-style:normal;color:var(--yellow);text-shadow:var(--glow-y)}
+  p.lead{color:var(--muted);font-size:1.08rem}
+  p + p{margin-top:14px}
+  .muted{color:var(--muted)}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;position:relative;
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:transform .3s, border-color .3s, box-shadow .3s}
+  .card:hover{transform:translateY(-4px);border-color:rgba(255,214,10,.45);box-shadow:0 0 0 1px rgba(255,214,10,.15),0 18px 50px -18px rgba(255,214,10,.35)}
+
+  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  @media (max-width:900px){.grid-3,.grid-4{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:620px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+
+  .take .num{font-family:'Space Grotesk';font-size:2.2rem;font-weight:700;color:var(--yellow);text-shadow:var(--glow-y);line-height:1}
+  .take h3{font-size:1.1rem;margin:14px 0 8px}
+  .take p{color:var(--muted);font-size:.95rem}
+
+  /* ---------- Intro facts ---------- */
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+  @media (max-width:720px){.facts{grid-template-columns:1fr}}
+  .fact{padding:20px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
+  .fact b{display:block;font-family:'Space Grotesk';font-size:1.25rem;color:var(--yellow);text-shadow:0 0 14px rgba(255,214,10,.5)}
+  .fact span{color:var(--muted);font-size:.92rem}
+
+  /* ---------- Tabla ---------- */
+  .table-wrap{margin-top:34px;border-radius:var(--radius);border:1px solid var(--line);overflow:hidden;background:var(--card);backdrop-filter:blur(10px)}
+  table{width:100%;border-collapse:collapse;font-size:.95rem}
+  th,td{padding:18px 20px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+  th{font-family:'Space Grotesk';font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--yellow);background:rgba(255,214,10,.06)}
+  tr:last-child td{border-bottom:none}
+  tbody tr{transition:background .25s}
+  tbody tr:hover{background:rgba(79,140,255,.08)}
+  td:first-child{font-weight:700;color:#fff;white-space:nowrap}
+  td{color:var(--muted)}
+  .risk{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px;white-space:nowrap}
+  .r-low{color:var(--green);border:1px solid rgba(61,220,151,.5);background:rgba(61,220,151,.08);box-shadow:0 0 14px rgba(61,220,151,.25)}
+  .r-mid{color:var(--yellow);border:1px solid rgba(255,214,10,.5);background:rgba(255,214,10,.08);box-shadow:0 0 14px rgba(255,214,10,.25)}
+  .r-high{color:var(--orange);border:1px solid rgba(255,159,28,.55);background:rgba(255,159,28,.08);box-shadow:0 0 14px rgba(255,159,28,.3)}
+  .r-vhigh{color:var(--red);border:1px solid rgba(255,77,109,.6);background:rgba(255,77,109,.1);box-shadow:0 0 16px rgba(255,77,109,.4);animation:alarm 2.4s infinite}
+  @keyframes alarm{0%,100%{box-shadow:0 0 10px rgba(255,77,109,.3)}50%{box-shadow:0 0 22px rgba(255,77,109,.7)}}
+  @media (max-width:760px){
+    table,thead,tbody,tr,td{display:block}
+    thead{display:none}
+    tbody tr{padding:18px;border-bottom:1px solid var(--line)}
+    td{border:none;padding:6px 0}
+    td::before{content:attr(data-l);display:block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:2px}
+    td:first-child{font-size:1.1rem;white-space:normal}
+    td:first-child::before{display:none}
+  }
+
+  /* ---------- Quote neon ---------- */
+  .neon-quote{margin:46px auto 0;max-width:820px;text-align:center;padding:34px 28px;border-radius:var(--radius);
+    border:1px solid rgba(255,214,10,.55);background:rgba(255,214,10,.04);
+    box-shadow:0 0 30px rgba(255,214,10,.18), inset 0 0 30px rgba(255,214,10,.08)}
+  .neon-quote p{font-family:'Space Grotesk';font-size:clamp(1.3rem,3.2vw,1.9rem);font-weight:700;color:#fff}
+  .neon-quote p span{color:var(--yellow);text-shadow:var(--glow-y)}
+
+  /* ---------- Bloques de plataforma ---------- */
+  .platform{display:grid;grid-template-columns:120px 1fr;gap:28px;padding:38px;margin-top:26px}
+  @media (max-width:720px){.platform{grid-template-columns:1fr;padding:26px;gap:12px}}
+  .platform .idx{font-family:'Space Grotesk';font-size:4rem;font-weight:700;line-height:1;color:transparent;-webkit-text-stroke:1.5px var(--yellow);filter:drop-shadow(0 0 10px rgba(255,214,10,.55))}
+  .platform h3{font-size:1.55rem;margin-bottom:6px;display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+  .platform h4{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin:22px 0 8px;text-shadow:0 0 10px rgba(79,209,255,.5)}
+  .platform p,.platform li{color:var(--muted)}
+  ul.ticks{list-style:none;display:grid;gap:9px}
+  ul.ticks li{position:relative;padding-left:26px}
+  ul.ticks li::before{content:"";position:absolute;left:0;top:.6em;width:10px;height:10px;border-radius:50%;background:var(--yellow);box-shadow:0 0 10px rgba(255,214,10,.9)}
+  ul.x li::before{background:var(--red);box-shadow:0 0 10px rgba(255,77,109,.9)}
+  .tip{margin-top:22px;padding:16px 18px;border-left:3px solid var(--yellow);background:rgba(255,214,10,.06);border-radius:0 12px 12px 0;color:#fff}
+  .tip b{color:var(--yellow)}
+  .case{margin-top:22px;padding:18px 20px;border-radius:14px;border:1px dashed rgba(255,77,109,.5);background:rgba(255,77,109,.06)}
+  .case b{color:var(--red);text-shadow:0 0 10px rgba(255,77,109,.5)}
+  .case p{color:#e8ecf8}
+
+  /* ---------- Combinación ---------- */
+  .combo{text-align:center}
+  .combo .icon{width:58px;height:58px;margin:0 auto 16px;border-radius:16px;display:grid;place-items:center;
+    background:rgba(255,214,10,.1);border:1px solid rgba(255,214,10,.45);box-shadow:var(--glow-y)}
+  .combo .icon svg{width:28px;height:28px;stroke:var(--yellow)}
+  .combo h3{font-size:1.2rem;margin-bottom:8px}
+  .combo p{color:var(--muted);font-size:.95rem}
+  .plus{font-family:'Space Grotesk';font-size:2rem;color:var(--yellow);text-shadow:var(--glow-y)}
+
+  .options{display:grid;gap:12px;margin-top:26px}
+  .opt{display:grid;grid-template-columns:200px 1fr auto;gap:18px;align-items:center;padding:18px 22px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.03);transition:.25s}
+  .opt:hover{border-color:rgba(79,209,255,.5);box-shadow:var(--glow-b)}
+  .opt b{font-family:'Space Grotesk';color:#fff}
+  .opt > span:not(.risk){color:var(--muted);font-size:.94rem}
+  @media (max-width:720px){.opt{grid-template-columns:1fr;gap:6px}}
+
+  /* ---------- Checklist 15 min ---------- */
+  .plan-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px}
+  .meter{min-width:260px;flex:1;max-width:380px}
+  .meter-top{display:flex;justify-content:space-between;font-size:.85rem;color:var(--muted);margin-bottom:8px}
+  .meter-top b{color:var(--yellow);text-shadow:0 0 10px rgba(255,214,10,.6)}
+  .bar{height:10px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden}
+  .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--yellow),var(--yellow-2));box-shadow:var(--glow-y);transition:width .5s cubic-bezier(.2,.8,.2,1)}
+  .steps{display:grid;gap:14px;margin-top:30px}
+  .step{display:grid;grid-template-columns:auto 96px 1fr;gap:18px;align-items:start;padding:20px 22px;border-radius:16px;border:1px solid var(--line);background:var(--card);cursor:pointer;transition:.25s;user-select:none}
+  .step:hover{border-color:rgba(255,214,10,.45)}
+  .step .chk{width:28px;height:28px;border-radius:8px;border:2px solid var(--yellow);display:grid;place-items:center;transition:.25s;margin-top:2px}
+  .step .chk svg{width:16px;height:16px;stroke:var(--bg);stroke-width:3.5;opacity:0;transform:scale(.4);transition:.25s}
+  .step .min{font-family:'Space Grotesk';font-weight:700;color:var(--yellow);font-size:.95rem;padding-top:3px}
+  .step h3{font-size:1.08rem;margin-bottom:4px}
+  .step p{color:var(--muted);font-size:.93rem}
+  .step p code{font-family:inherit;color:#fff;background:rgba(79,140,255,.15);padding:1px 7px;border-radius:6px;font-size:.88rem}
+  .step.done{border-color:rgba(255,214,10,.6);background:rgba(255,214,10,.06)}
+  .step.done .chk{background:var(--yellow);box-shadow:var(--glow-y)}
+  .step.done .chk svg{opacity:1;transform:scale(1)}
+  .step.done h3{text-decoration:line-through;text-decoration-color:var(--yellow);opacity:.8}
+  @media (max-width:620px){.step{grid-template-columns:auto 1fr}.step .min{grid-column:2}.step .body{grid-column:1 / -1}}
+  .done-msg{display:none;margin-top:20px;text-align:center;padding:18px;border-radius:14px;border:1px solid rgba(255,214,10,.6);color:var(--yellow);font-weight:700;box-shadow:var(--glow-y)}
+  .done-msg.show{display:block;animation:pop .5s}
+  @keyframes pop{0%{transform:scale(.9);opacity:0}100%{transform:scale(1);opacity:1}}
+
+  /* ---------- Final ---------- */
+  .final{text-align:center;padding:90px 0 80px}
+  .final blockquote{font-family:'Space Grotesk';font-size:clamp(1.5rem,4vw,2.5rem);font-weight:700;max-width:900px;margin:0 auto;line-height:1.25}
+  .final blockquote span{color:var(--yellow);text-shadow:var(--glow-y)}
+  .final .sign{margin-top:26px;color:var(--muted)}
+  .final .sign b{color:var(--yellow)}
+  .ig-card{max-width:620px;margin:46px auto 0;padding:34px;border-radius:22px;border:1px solid rgba(255,214,10,.55);
+    background:linear-gradient(160deg,rgba(17,40,110,.75),rgba(6,14,40,.85));box-shadow:0 0 50px rgba(255,214,10,.15)}
+  .ig-card h3{font-size:1.5rem;margin-bottom:8px}
+  .ig-card p{color:var(--muted);margin-bottom:22px}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:40px}
+  .tags span{font-size:.8rem;color:var(--dim);padding:6px 12px;border-radius:999px;border:1px solid var(--line)}
+
+  footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;color:var(--dim);font-size:.88rem}
+  footer a{font-weight:600}
+
+  /* ---------- Reveal ---------- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+  .divider{height:1px;max-width:1100px;margin:0 auto;background:linear-gradient(90deg,transparent,rgba(255,214,10,.6),transparent);box-shadow:0 0 12px rgba(255,214,10,.5)}
+
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+<div class="bg"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div></div>
+<div class="grid"></div>
+<div class="progress" id="progress"></div>
+
+<nav class="top">
+  <div class="nav-in">
+    <div class="brand"><span class="dot"></span>MUSE · <b>MASTER ADS</b></div>
+    <a class="nav-cta" href="https://www.instagram.com/johancano_ads/" target="_blank" rel="noopener">@johancano_ads</a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero wrap">
+  <div class="badge reveal">⚡ Guía práctica · Muse de Meta</div>
+  <h1 class="reveal d1"><span class="muse">MUSE</span><span class="master">MASTER ADS</span></h1>
+  <p class="sub reveal d2">Todo lo que el agente de Meta puede <strong>ver</strong> y <strong>hacer</strong> dentro de tu Instagram, Facebook, Messenger y WhatsApp — y cómo dejarlo bajo control en 15 minutos.</p>
+  <div class="meta reveal d3">
+    <span>Por <span class="handle">@johancano_ads</span></span>
+    <span>⏱ 10 min de lectura</span>
+    <span>📅 Octubre 2026</span>
+  </div>
+  <div class="hero-ctas reveal d4">
+    <a class="btn btn-y" href="#plan">Ir al plan de 15 minutos →</a>
+    <a class="btn btn-o" href="#permisos">Ver la tabla de permisos</a>
+  </div>
+  <div class="scroll-hint">Desliza<i></i></div>
+</header>
+
+<!-- ================= INTRO ================= -->
+<section id="intro">
+  <div class="wrap narrow">
+    <div class="eyebrow reveal">Contexto</div>
+    <h2 class="title reveal">¿Qué es <em>Muse</em> y por qué te tiene que importar?</h2>
+    <p class="lead reveal">Muse es el agente personal de Meta. No es un chatbot que te responde y ya: es un asistente que <strong>trabaja por ti</strong> dentro de tus cuentas, ejecutando tareas durante horas mientras tú haces otra cosa.</p>
+    <p class="lead reveal">Si manejas tu marca, tu negocio o las cuentas de tus clientes desde Meta, esto te toca directo. Lo que Muse puede leer y lo que puede hacer en tu nombre define cuánto riesgo estás asumiendo cada vez que le das un "sí".</p>
+    <div class="facts">
+      <div class="fact reveal d1"><b>8 sept. 2026</b><span>Fecha de lanzamiento de Muse.</span></div>
+      <div class="fact reveal d2"><b>Nube de Meta</b><span>Corre en máquinas virtuales de Meta, no en tu teléfono.</span></div>
+      <div class="fact reveal d3"><b>Auto-conectado</b><span>Facebook, Instagram y Threads se enlazan solos vía el Centro de cuentas.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TAKEAWAYS ================= -->
+<section id="resumen">
+  <div class="wrap">
+    <div class="eyebrow reveal">Resumen rápido</div>
+    <h2 class="title reveal">Lo que te <em>llevas</em> de esta guía</h2>
+    <div class="grid-4" style="margin-top:28px">
+      <div class="card take reveal d1"><div class="num">01</div><h3>El mapa completo</h3><p>Qué ve y qué ejecuta Muse en cada app de Meta, con su nivel de riesgo.</p></div>
+      <div class="card take reveal d2"><div class="num">02</div><h3>Los puntos rojos</h3><p>Dónde un permiso mal dado termina afectando tu reputación o la de tu marca.</p></div>
+      <div class="card take reveal d3"><div class="num">03</div><h3>Cómo aprueba</h3><p>Las 5 opciones de permiso de Sentinel y cuál usar en cada caso.</p></div>
+      <div class="card take reveal d4"><div class="num">04</div><h3>Plan de 15 min</h3><p>Un checklist interactivo para auditar y recortar permisos hoy mismo.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ================= TABLA ================= -->
+<section id="permisos">
+  <div class="wrap">
+    <div class="eyebrow reveal">La tabla clave</div>
+    <h2 class="title reveal">Permisos de Muse <em>por plataforma</em></h2>
+    <p class="lead reveal" style="max-width:760px">Guárdala. Es la foto completa de hasta dónde llega el agente en cada espacio de tus cuentas.</p>
+
+    <div class="table-wrap reveal">
+      <table>
+        <thead>
+          <tr><th>Plataforma</th><th>Lo que puede leer</th><th>Lo que puede hacer</th><th>Riesgo</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-l="Plataforma">Instagram · Actividad</td>
+            <td data-l="Lee">Reels, publicaciones, likes, seguidores, seguidos, guardados, historias y métricas</td>
+            <td data-l="Hace">Analizar y resumir ese contenido</td>
+            <td data-l="Riesgo"><span class="risk r-mid">Medio</span></td>
+          </tr>
+          <tr>
+            <td data-l="Plataforma">Instagram · Perfil y posts</td>
+            <td data-l="Lee">Tu perfil y tus colecciones</td>
+            <td data-l="Hace">Cambiar bio y foto, organizar colecciones, publicar Reels, fotos, carruseles e historias</td>
+            <td data-l="Riesgo"><span class="risk r-high">Alto</span></td>
+          </tr>
+          <tr>
+            <td data-l="Plataforma">Instagram · DMs</td>
+            <td data-l="Lee">Todas tus conversaciones, con búsqueda por persona, palabra o fecha</td>
+            <td data-l="Hace">Resumir chats y enviar texto, fotos y videos</td>
+            <td data-l="Riesgo"><span class="risk r-vhigh">Muy alto</span></td>
+          </tr>
+          <tr>
+            <td data-l="Plataforma">Facebook y Marketplace</td>
+            <td data-l="Lee">Publicaciones de venta, grupos y eventos</td>
+            <td data-l="Hace">Crear, editar y borrar productos; escribirle y negociar con compradores</td>
+            <td data-l="Riesgo"><span class="risk r-vhigh">Muy alto</span></td>
+          </tr>
+          <tr>
+            <td data-l="Plataforma">Messenger</td>
+            <td data-l="Lee">Tus conversaciones</td>
+            <td data-l="Hace">Resumir, enviar mensajes con adjuntos, reaccionar y editar mensajes ya enviados</td>
+            <td data-l="Riesgo"><span class="risk r-high">Alto</span></td>
+          </tr>
+          <tr>
+            <td data-l="Plataforma">WhatsApp</td>
+            <td data-l="Lee">Solo lo que tú le escribes a Muse</td>
+            <td data-l="Hace">Recibir encargos de tareas como si fuera un contacto más</td>
+            <td data-l="Riesgo"><span class="risk r-low">Bajo</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="neon-quote reveal">
+      <p>Cuando Muse <span>lee</span>, se expone tu información.<br/>Cuando Muse <span>actúa</span>, se expone tu nombre.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ================= PLATAFORMAS ================= -->
+<section id="detalle">
+  <div class="wrap">
+    <div class="eyebrow reveal">Plataforma por plataforma</div>
+    <h2 class="title reveal">Qué hace, qué arriesga y <em>qué te recomiendo</em></h2>
+
+    <!-- 01 -->
+    <article class="card platform reveal">
+      <div class="idx">01</div>
+      <div>
+        <h3>Instagram: tu actividad <span class="risk r-mid">Medio</span></h3>
+        <p>Muse puede recorrer tus Reels, publicaciones, likes, seguidores, a quién sigues, lo que guardaste, tus historias y tus métricas.</p>
+        <h4>Para qué sirve</h4>
+        <p>Cosas útiles de verdad: "organízame todas las ideas de contenido que he guardado" o "dime qué Reels me funcionaron mejor este mes".</p>
+        <h4>El riesgo</h4>
+        <p>Tus guardados y la lista de cuentas que sigues dicen mucho de ti: intereses, salud, posturas, hábitos. Es información sensible aunque no lo parezca.</p>
+        <div class="tip"><b>Mi recomendación:</b> déjalo en modo solo lectura y activa funciones adicionales únicamente cuando tengas una tarea concreta.</div>
+      </div>
+    </article>
+
+    <!-- 02 -->
+    <article class="card platform reveal">
+      <div class="idx">02</div>
+      <div>
+        <h3>Instagram: perfil y publicaciones <span class="risk r-high">Alto</span></h3>
+        <p>Aquí Muse ya no solo mira: puede cambiar tu bio y tu foto, reorganizar colecciones y publicar Reels, fotos, carruseles e historias.</p>
+        <h4>Lo que puede salir mal</h4>
+        <ul class="ticks x">
+          <li>Que suba el archivo equivocado o lo publique en la cuenta que no era.</li>
+          <li>Una historia publicada ya la vio alguien: no hay forma de "des-verla".</li>
+          <li>Un cambio en la bio que nadie nota durante semanas.</li>
+        </ul>
+        <div class="tip"><b>Regla de oro:</b> publicar jamás debería estar en "Permitir siempre". Y si ya lo tenías conectado, revisa hoy tu bio y tu foto de perfil.</div>
+      </div>
+    </article>
+
+    <!-- 03 -->
+    <article class="card platform reveal">
+      <div class="idx">03</div>
+      <div>
+        <h3>Mensajes privados de Instagram <span class="risk r-vhigh">Muy alto</span></h3>
+        <p>Es el permiso más delicado. Muse puede leer todas tus conversaciones, buscarlas por persona, palabra o fecha, detectar mensajes que tienes pendientes por responder y enviar texto o multimedia.</p>
+        <h4>Por qué es distinto</h4>
+        <p>En tus DMs no solo está tu información: está la de las personas que te escriben. Y quien recibe un mensaje cree que está hablando contigo, no con un agente.</p>
+        <div class="case">
+          <p><b>Caso real:</b> un columnista de tecnología reportó que se sincronizaron más de 187.000 registros de sus mensajes de iMessage sin que él lo autorizara. Meta lo negó y el tema sigue en discusión. Real o no, muestra por qué este permiso merece lupa.</p>
+        </div>
+        <div class="tip"><b>Mi recomendación:</b> niégalo, salvo que tengas un caso de uso muy claro. Y si lo activas, revísalo dos veces.</div>
+      </div>
+    </article>
+
+    <!-- 04 -->
+    <article class="card platform reveal">
+      <div class="idx">04</div>
+      <div>
+        <h3>Facebook y Marketplace <span class="risk r-vhigh">Muy alto</span></h3>
+        <p>Muse puede crear, editar y eliminar productos, además de contactar compradores, negociar y coordinar entregas por Messenger.</p>
+        <div class="case">
+          <p><b>Caso real:</b> un usuario le pidió a Muse que respondiera automáticamente a los interesados en un artículo. El agente aceptó una oferta baja, compartió la dirección de su casa sin consultarle y cuadró una visita presencial. Resultado: una calificación negativa y un buen susto.</p>
+        </div>
+        <h4>La lección</h4>
+        <p>Para un agente, "responde tú" puede significar "tienes permiso para compartir datos sensibles y comprometerme a citas en persona".</p>
+        <h4>Cómo protegerte</h4>
+        <ul class="ticks">
+          <li>Usa un lugar público como punto de entrega, nunca tu casa.</li>
+          <li>Limita las respuestas automáticas a preguntas de catálogo: precio, medidas, disponibilidad.</li>
+          <li>Exige tu aprobación para negociar, aceptar ofertas o compartir ubicación.</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- 05 -->
+    <article class="card platform reveal">
+      <div class="idx">05</div>
+      <div>
+        <h3>Messenger <span class="risk r-high">Alto</span></h3>
+        <p>Puede resumir conversaciones, enviar mensajes con archivos, reaccionar y — ojo con esto — <strong>editar mensajes que ya enviaste</strong>.</p>
+        <h4>Por qué importa</h4>
+        <p>Editar mensajes significa que el agente puede cambiar, después del hecho, lo que tú ya dijiste. Si coordinas pedidos, precios o acuerdos con clientes por Messenger, un malentendido aquí te sale caro.</p>
+        <div class="tip"><b>Si es cuenta de negocio:</b> pon "enviar" y "editar" en "Preguntar siempre". Sin excepciones.</div>
+      </div>
+    </article>
+
+    <!-- 06 -->
+    <article class="card platform reveal">
+      <div class="idx">06</div>
+      <div>
+        <h3>WhatsApp <span class="risk r-low">Bajo</span></h3>
+        <p>Funciona al revés que las demás: <strong>tú le escribes a Muse</strong>, como a cualquier contacto, y le encargas tareas.</p>
+        <h4>Qué ve</h4>
+        <p>Solo lo que tú le mandas. Si le reenvías un chat, ese chat sí lo ve. Tus conversaciones personales siguen cifradas de extremo a extremo.</p>
+        <div class="tip"><b>Veredicto:</b> es el canal de menor riesgo. Úsalo para pedirle cosas sin tener que abrir la app.</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ================= COMBINACIÓN ================= -->
+<section id="combinacion">
+  <div class="wrap">
+    <div class="eyebrow reveal">El verdadero problema</div>
+    <h2 class="title reveal">No es un permiso. Es <em>la combinación</em>.</h2>
+    <p class="lead reveal" style="max-width:760px">Cada permiso por separado puede parecer inofensivo. El riesgo real aparece cuando se juntan estas tres cosas:</p>
+
+    <div class="grid-3" style="margin-top:30px">
+      <div class="card combo reveal d1">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Acceso total</h3>
+        <p>Actividad, mensajes, productos y, si los conectas, correo y calendario.</p>
+      </div>
+      <div class="card combo reveal d2">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <h3>Capacidad de actuar</h3>
+        <p>Publicar, enviar, editar, negociar e incluso comprar.</p>
+      </div>
+      <div class="card combo reveal d3">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h3>Permisos persistentes</h3>
+        <p>Quedan aprobados hasta que tú, manualmente, los revoques.</p>
+      </div>
+    </div>
+
+    <div class="narrow" style="margin-top:60px">
+      <h3 class="reveal" style="font-size:1.6rem">Sentinel: <span style="color:var(--yellow);text-shadow:var(--glow-y)">el guardián que aprueba</span></h3>
+      <p class="muted reveal" style="margin-top:10px">Meta usa un agente aparte, llamado Sentinel, que revisa cada acción de Muse sobre conectores o hacia internet. Cada vez te ofrece cinco opciones:</p>
+      <div class="options">
+        <div class="opt reveal"><b>Permitir una vez</b><span>Aprueba solo esa acción puntual.</span><span class="risk r-low">Seguro</span></div>
+        <div class="opt reveal"><b>Permitir para esta tarea</b><span>Vale hasta que termine la tarea en curso.</span><span class="risk r-mid">Con cuidado</span></div>
+        <div class="opt reveal"><b>Permitir para este sitio</b><span>Le das vía libre en toda la plataforma.</span><span class="risk r-high">Riesgoso</span></div>
+        <div class="opt reveal"><b>Permitir siempre</b><span>Aprobación permanente. Casi nunca vale la pena.</span><span class="risk r-vhigh">Evítalo</span></div>
+        <div class="opt reveal"><b>Denegar</b><span>Tu opción por defecto cuando tengas la mínima duda.</span><span class="risk r-low">Default</span></div>
+      </div>
+      <div class="tip reveal" style="margin-top:26px"><b>Hasta Meta lo advierte:</b> Muse puede tomar acciones inesperadas, y la propia compañía recomienda supervisarlo de cerca.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ================= AUDITORÍA ================= -->
+<section id="auditoria">
+  <div class="wrap narrow">
+    <div class="eyebrow reveal">Auditoría</div>
+    <h2 class="title reveal">Dónde <em>revisar y quitar</em> permisos</h2>
+    <div class="grid-2" style="margin-top:26px">
+      <div class="card reveal"><h3 style="font-size:1.05rem;margin-bottom:6px">1 · Preguntar siempre</h3><p class="muted">Configuración → Permisos → elige "Preguntar siempre" en vez de "Preguntar para algunas acciones".</p></div>
+      <div class="card reveal"><h3 style="font-size:1.05rem;margin-bottom:6px">2 · Conectores externos</h3><p class="muted">Configuración → Conectores. Desconecta Gmail, Calendar, Notion, Spotify o lo que no estés usando.</p></div>
+      <div class="card reveal"><h3 style="font-size:1.05rem;margin-bottom:6px">3 · Centro de cuentas</h3><p class="muted">Revisa qué apps y experiencias están conectadas a Facebook, Instagram y Threads.</p></div>
+      <div class="card reveal"><h3 style="font-size:1.05rem;margin-bottom:6px">4 · Entrenamiento de IA</h3><p class="muted">Configuración → Controles de datos → desmarca "Ayudar a mejorar nuestros modelos de IA".</p></div>
+      <div class="card reveal"><h3 style="font-size:1.05rem;margin-bottom:6px">5 · Billetera</h3><p class="muted">Revisa los métodos de pago guardados (los gestiona Stripe y no muestran el número completo).</p></div>
+      <div class="card reveal"><h3 style="font-size:1.05rem;margin-bottom:6px">6 · Perfil y mensajes</h3><p class="muted">Verifica bio, foto y los últimos mensajes enviados en Instagram y Messenger.</p></div>
+    </div>
+    <div class="card reveal" style="margin-top:18px"><h3 style="font-size:1.05rem;margin-bottom:6px">7 · Marketplace</h3><p class="muted">Cambia el punto de entrega a un lugar público.</p></div>
+
+    <h3 class="reveal" style="font-size:1.4rem;margin-top:56px">Errores que veo a cada rato</h3>
+    <ul class="ticks x reveal" style="margin-top:18px">
+      <li>Aprobar todo en la configuración inicial pensando "es solo para probar".</li>
+      <li>Dejar mensajes y publicaciones en "Permitir siempre".</li>
+      <li>Poner la dirección de la casa como punto de entrega en Marketplace.</li>
+      <li>No darse cuenta de que Facebook, Instagram y Threads se conectaron solos.</li>
+      <li>Usar Muse en la cuenta del negocio sin avisarle al equipo.</li>
+      <li>Configurar los permisos una vez y nunca más volver a revisarlos.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ================= PLAN 15 MIN ================= -->
+<section id="plan">
+  <div class="wrap narrow">
+    <div class="plan-head">
+      <div>
+        <div class="eyebrow reveal">Hazlo hoy</div>
+        <h2 class="title reveal" style="margin-bottom:0">Tu plan de <em>15 minutos</em></h2>
+      </div>
+      <div class="meter reveal">
+        <div class="meter-top"><span>Progreso</span><b id="pct">0%</b></div>
+        <div class="bar"><i id="barFill"></i></div>
+      </div>
+    </div>
+    <p class="muted reveal" style="margin-top:14px">Toca cada paso cuando lo termines.</p>
+
+    <div class="steps" id="steps">
+      <div class="step reveal" data-i="0"><div class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="min">Min 1–3</div><div class="body"><h3>Activa "Preguntar siempre"</h3><p>En <code>Configuración → Permisos</code>.</p></div></div>
+      <div class="step reveal" data-i="1"><div class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="min">Min 3–6</div><div class="body"><h3>Desconecta conectores</h3><p>Todo lo que no hayas usado en la última semana.</p></div></div>
+      <div class="step reveal" data-i="2"><div class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="min">Min 6–9</div><div class="body"><h3>Revisa el Centro de cuentas</h3><p>Apps y experiencias conectadas a Facebook, Instagram y Threads.</p></div></div>
+      <div class="step reveal" data-i="3"><div class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="min">Min 9–11</div><div class="body"><h3>Apaga el entrenamiento con tus datos</h3><p>En <code>Controles de datos</code>.</p></div></div>
+      <div class="step reveal" data-i="4"><div class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="min">Min 11–13</div><div class="body"><h3>Audita bio, foto y mensajes</h3><p>Que todo lo publicado y enviado sea realmente tuyo.</p></div></div>
+      <div class="step reveal" data-i="5"><div class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="min">Min 13–15</div><div class="body"><h3>Marketplace a lugar público</h3><p>Cambia el punto de entrega hoy mismo.</p></div></div>
+      <div class="step reveal" data-i="6"><div class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="min">Bonus</div><div class="body"><h3>Agenda la próxima revisión</h3><p>Pon un recordatorio en tu calendario para repetir esto en 30 días.</p></div></div>
+    </div>
+    <div class="done-msg" id="doneMsg">🔒 Listo. Tus cuentas quedaron bajo tu control. Nos vemos en 30 días.</div>
+  </div>
+</section>
+
+<!-- ================= FINAL ================= -->
+<section class="final">
+  <div class="wrap">
+    <blockquote class="reveal">Un agente con acceso a todo y permiso para actuar <span>es otra persona manejando tu cuenta</span>. Entrégale una puerta a la vez, nunca la casa entera.</blockquote>
+    <p class="sign reveal">— <b>@johancano_ads</b></p>
+
+    <div class="ig-card reveal">
+      <h3>¿Te sirvió esta guía?</h3>
+      <p>Sígueme en Instagram para más estrategia de Meta Ads, IA y automatización. Y si tienes dudas sobre Muse, déjamelas en los comentarios del Reel.</p>
+      <a class="btn btn-y" href="https://www.instagram.com/johancano_ads/" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        Seguir a @johancano_ads
+      </a>
+    </div>
+
+    <div class="tags reveal">
+      <span>#muse</span><span>#meta</span><span>#ia</span><span>#privacidad</span><span>#seguridad</span><span>#instagram</span><span>#facebook</span><span>#agentesia</span><span>#metaads</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 · MUSE - MASTER ADS · <a href="https://www.instagram.com/johancano_ads/" target="_blank" rel="noopener">@johancano_ads</a></div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  (function(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+    },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(e){io.observe(e)});
+  })();
+
+  // Progress bar
+  (function(){
+    var bar=document.getElementById('progress');
+    function upd(){var h=document.documentElement;var max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max*100):0)+'%';}
+    window.addEventListener('scroll',upd,{passive:true});upd();
+  })();
+
+  // Checklist
+  (function(){
+    var KEY='muse-master-ads-plan';
+    var steps=[].slice.call(document.querySelectorAll('.step'));
+    var state=[];
+    try{state=JSON.parse(localStorage.getItem(KEY))||[];}catch(e){state=[];}
+    function render(){
+      var done=0;
+      steps.forEach(function(s,i){var on=!!state[i];s.classList.toggle('done',on);if(on)done++;});
+      var p=Math.round(done/steps.length*100);
+      document.getElementById('pct').textContent=p+'%';
+      document.getElementById('barFill').style.width=p+'%';
+      document.getElementById('doneMsg').classList.toggle('show',done===steps.length);
+    }
+    steps.forEach(function(s,i){
+      s.addEventListener('click',function(){
+        state[i]=!state[i];
+        try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}
+        render();
+      });
+    });
+    render();
+  })();
+</script>
+</body>
+</html>
